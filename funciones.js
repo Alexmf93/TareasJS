@@ -71,8 +71,8 @@ function displayTarea(tarea){
             <input type="checkbox" class="tarea-realizada">
             ${iconoTipo}
             <span class="texto-tarea">${tarea.texto}</span>
-        </div>
-        <button class="eliminar">🗑️</button>
+            </div>
+            <button class="eliminar">🗑️</button>
     `
 
     //mostrar tarea segun esté realiozada o no
@@ -128,7 +128,7 @@ listaFiltros.forEach(filtro => {
 
             if(tarea.tipo === filtro || filtro === 'todas'){
                 //mostrar tarea
-                elementoTarea.style.display = 'list-item'
+                elementoTarea.style.display = 'flex'
             }else{
                 //ocultar tarea
                 elementoTarea.style.display = 'none'
