@@ -5,8 +5,9 @@ let contadorTareas = 0
 //Recuperar las tareas del localstorage
 
 
-if(localStorage.getItem('tareasGuardadas') !== null){
-    listaDeTareas = JSON.parse(localStorage.getItem('tareasGuardadas'))
+if(localStorage.getItem('tareasguardadas') !== null){
+    listaDeTareas = JSON.parse(localStorage.getItem('tareasguardadas'))
+    console.log(listaDeTareas)
     listaDeTareas.forEach(item => {
         displayTarea(item)
         if(item.id > contadorTareas){
@@ -25,7 +26,7 @@ function crearTarea(){
     let textoTarea = document.getElementById('inputTarea').value 
     let tipoTarea = document.getElementById('tipoTarea').value
 
-    //comprobar que hat texto en el input
+    //comprobar que hay texto en el input
 
     if(textoTarea.trim() === ''){
         document.getElementById('errorTarea').textContent = "Debes escribir una tarea"
@@ -76,7 +77,7 @@ function displayTarea(tarea){
 
     //mostrar tarea segun esté realiozada o no
     if(tarea.tareaRealizada){
-        li.querySelector('.texto-tarea').computedStyleMap().textDecoration = 'line-through'
+        li.querySelector('.texto-tarea').style.textDecoration = 'line-through'
         li.querySelector('.tarea-realizada').checked = true
     }
 
@@ -100,6 +101,7 @@ function displayTarea(tarea){
         //comprueba si la casilla esta seleccionada
         if(li.querySelector('.tarea-realizada').checked === true){
             li.querySelector('.texto-tarea').style.textDecoration = 'line-through'
+            tarea.tareaRealizada = true
         }else{
             li.querySelector('.texto-tarea').style.textDecoration = 'none'
             tarea.tareaRealizada = false
